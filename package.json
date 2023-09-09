@@ -1,0 +1,17 @@
+{
+  "name": "root",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "init": "npm install && npm run clean && lerna bootstrap",
+    "clean": "cross-env lerna clean --yes && lerna exec -- rimraf dist",
+    "refresh": "lerna bootstrap",
+    "build": "lerna run build --stream --scope=MyCounter",
+    "react": "lerna run start --stream --scope=react-with-webcomponent"
+  },
+  "devDependencies": {
+    "lerna": "^6.6.1"
+  }
+}
